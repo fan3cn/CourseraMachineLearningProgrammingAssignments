@@ -26,8 +26,20 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
+% Number of points assigned to kth centroids
+CK = zeros(K,1);
 
+for i = 1 : m
+	% Find the closest centroid index this point belongs to
+	c_idx = idx(i,1);
+	% Sum together
+	centroids(c_idx, :) = centroids(c_idx, :) + X(i,:);
+	% Record the total number 
+	CK(c_idx,1) = CK(c_idx,1) + 1;
+end
 
+% Calculate the mean
+centroids = centroids./CK;
 
 
 
