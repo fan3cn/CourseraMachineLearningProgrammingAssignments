@@ -20,10 +20,12 @@ S = zeros(n);
 %       number of examples).
 %
 
+% Compute covariance matrix
+Sigma = (X' * X)/m;
 
-
-
-
+% Compute the principal components
+% U contains the principal components and S contains a diagonal matrix.
+[U, S, V] = svd(Sigma);
 
 
 % =========================================================================
